@@ -21,8 +21,6 @@ import {
 // eslint-disable-next-line import/prefer-default-export
 export const addProject = (project) => async (dispatch) => {
   try {
-    console.log("SFJHASFSADFHSUJFDHAUJS")
-    // console.log('PROJECT', project);
     dispatch({ type: ADD_PROJECT_BEGIN });
     const loginToken = localStorage.getItem('token');
     const { data } = await axios.post(`${process.env.REACT_APP_BASE_API}project/addproject`, project, { headers: { token: loginToken } });
@@ -119,7 +117,6 @@ export const filteredProjectMessenger = (selectedFilters) => {
 }
 
 export const filteredProjectCommunication = (selectedFilters) => {
-  console.log(selectedFilters)
   if(!selectedFilters.length) return {type: FILTER_PROJECT_FORMAT_OF_COMUNICATUIN, payload: ['all']}
   return {type: FILTER_PROJECT_FORMAT_OF_COMUNICATUIN, payload: selectedFilters}
 }
